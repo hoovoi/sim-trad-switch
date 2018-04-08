@@ -3,6 +3,7 @@
 
 ## 使用方法
 在标签的类名是添加对应的类名,简体对应的类名为sim，繁体为trad。
+调用stSwitch切换网页文本
 
 
 # html
@@ -10,6 +11,10 @@
 	<section class="sim">
 		文字内容
 	</section>
+```
+# js
+```
+	stSwitch()
 ```
 
 # 参数
