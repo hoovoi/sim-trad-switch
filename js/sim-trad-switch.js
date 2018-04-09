@@ -86,6 +86,9 @@
 				}
 				if(textNodes.nodeName == "TEXTAREA" || textNodes.nodeName == "INPUT"){
 					textNodes.value = swStr;
+					textNodes.dataset.sim = type=="sim"? swStr:_swStr; 
+					textNodes.dataset.trad = type=="trad"? swStr:_swStr; 
+					textNodes.dataset.type = type;
 				}
 				else if(typeof textNodes == "string"){
 					return swStr;
@@ -108,7 +111,12 @@
 			for(var i=0,len=this.obj.length;i<len;i++){
 				obj = this.obj[i];
 				_type = obj.dataset.type;
-				obj.innerHTML = _type=="sim"?obj.dataset.trad:obj.dataset.sim;
+				if(obj.tagName == "TEXTAREA" || obj.tagName =="INPUT"){
+					obj.value = _type=="sim"?obj.dataset.trad:obj.dataset.sim;
+				}
+				else{
+					obj.innerHTML = _type=="sim"?obj.dataset.trad:obj.dataset.sim;
+				}
 				obj.dataset.type = _type=="sim"?"trad":"sim";
 			}
 		}	
