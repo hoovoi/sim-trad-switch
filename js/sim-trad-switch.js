@@ -108,7 +108,7 @@
 			for(var i=0,len=this.obj.length;i<len;i++){
 				obj = this.obj[i];
 				_type = obj.dataset.type;
-				obj.innerText = _type=="sim"?obj.dataset.trad:obj.dataset.sim;
+				obj.innerHTML = _type=="sim"?obj.dataset.trad:obj.dataset.sim;
 				obj.dataset.type = _type=="sim"?"trad":"sim";
 			}
 		}	
