@@ -30,3 +30,4 @@ sim 	标签内文本转化为简体
 trad 	标签内文本转化为繁体
 # options
 switch [boolean] 是否开启切换
+callback [function]	初次切换后的回掉，返回所有绑定的文本节点

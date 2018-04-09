@@ -21,6 +21,10 @@
     	<p class="sim">简体文字 体体体体体体</p>
     	<p class="trad">繁体文字 体体体体体体</p>
     </section>
+
+    <section class="trad">
+        <p>繁体文字 <span>体体体体体体</span><a href="#">体体</a></p>
+    </section>
    	<a href="javascript:stSwitch.changeText()">切换</a>
 
    	<section>
@@ -35,7 +39,10 @@
     <script src="js/sim-trad-switch.js"></script>
     <script type="text/javascript">
     	var stSwitch = new stSwitch({
-			switch: true
+			switch: true,
+      callback: function(res){
+        console.log(res);
+      }
 		});
 
 		var text = document.querySelector("textarea");
