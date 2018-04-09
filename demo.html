@@ -6,7 +6,6 @@
 <title>简体-繁体-切换</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-<link href="" rel="stylesheet">
 </head>
 <body>
 	<section class="sim">
@@ -22,14 +21,29 @@
     	<p class="sim">简体文字 体体体体体体</p>
     	<p class="trad">繁体文字 体体体体体体</p>
     </section>
-
    	<a href="javascript:stSwitch.changeText()">切换</a>
+
+   	<section>
+   		<textarea class="trad" type="text" value="" style="width: 300px;height: 100px;resize:none">体体体体体体</textarea>
+   		<div>
+   			<a href="javascript:stSwitch.simtradSwitch('sim',text)">转换为简体字</a>
+   			<a href="javascript:stSwitch.simtradSwitch('trad',text)">转换为繁体字</a>
+   		</div>
+   	</section>
+   	
 
     <script src="js/sim-trad-switch.js"></script>
     <script type="text/javascript">
     	var stSwitch = new stSwitch({
 			switch: true
 		});
+
+		var text = document.querySelector("textarea");
+
+		// 直接调用
+		var str = "体体体体体体";
+		var str_trad = stSwitch.simtradSwitch('trad',str);
+		console.log(str_trad);
     </script>
 </body>
 </html>

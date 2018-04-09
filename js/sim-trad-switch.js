@@ -50,8 +50,14 @@
 				}
 			},
 		simtradSwitch: function (type,textNodes){
-				var str = textNodes.innerText,
-					strFont = this.tradFont, //对照
+				var str ;
+				if(typeof textNodes == "string"){
+					str = textNodes;
+				}
+				else{
+					str =  (textNodes.nodeName == "TEXTAREA" || textNodes.nodeName == "INPUT")?textNodes.value:textNodes.innerText
+				}
+				var	strFont = this.tradFont, //对照
 					swFont = this.simFont, //转化
 					swStr = "",	//转化后文本
 					_swStr = ""; //切换的文本 
@@ -68,10 +74,18 @@
 						_swStr += _index>=0 ? strFont[_index]:str[i];
 					}
 				}
-				textNodes.dataset.sim = type=="sim"? swStr:_swStr; 
-				textNodes.dataset.trad = type=="trad"? swStr:_swStr; 
-				textNodes.dataset.type = type;
-				textNodes.innerText = swStr;
+				if(textNodes.nodeName == "TEXTAREA" || textNodes.nodeName == "INPUT"){
+					textNodes.value = swStr;
+				}
+				else if(typeof textNodes == "string"){
+					return swStr;
+				}
+				else{
+					textNodes.dataset.sim = type=="sim"? swStr:_swStr; 
+					textNodes.dataset.trad = type=="trad"? swStr:_swStr; 
+					textNodes.dataset.type = type;
+					textNodes.innerText = swStr;
+				}	
 			},
 		changeText: function(){
 			if(!this.options.switch) return;
@@ -86,6 +100,5 @@
 			}
 		}	
 	}
-
-		return stSwitch;
+	return stSwitch;
 })
