@@ -29,5 +29,7 @@
 sim 	标签内文本转化为简体
 trad 	标签内文本转化为繁体
 # options
-switch [boolean] 是否开启切换
-callback [function]	初次切换后的回掉，返回所有绑定的文本节点
+| options | 类型 | 默认值 | 说明 |
+| ---------- |:-------:|:-------:|:------:|
+| switch | boolean | false | 开启切换 |
+| callback | function | none | 实例化后完成的回调,返回所有的文本节点数组 |
