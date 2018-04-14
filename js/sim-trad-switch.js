@@ -20,7 +20,9 @@
 	stSwitch.prototype={
 		extend:function(options){
 			var defaults = {
-				switch: false //开启切换
+				switch: false, //开启切换
+				__s: new Date().getTime(),
+				debug: false
 			}
 			var key;
 			for(key in options){
@@ -100,6 +102,9 @@
 					textNodes.innerHTML = swStr;
 				}
 				if(this.options.callback && this.end){
+					if(this.options.debug){
+						console.log("初始化耗时:",(new Date().getTime()) - this.options.__s,"ms");
+					}	
 					this.options.callback(this.obj);
 				}
 			},

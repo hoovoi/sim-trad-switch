@@ -3,6 +3,9 @@
 * 支持input、textarea的value值转化，直接调用则是返回对应文本，具体可以看demo。
 * demo 页面中包含一个繁简体转化器，可以在本地直接转化。
 * tips: 实例化后会对添加了定义繁简体的标签进行一次切换。
+***
+## update 
+* 2018-04-13 : 增加debug，当前仅支持查看实例化耗时
 
 ## 使用方法
 在标签的类名是添加对应的类名,简体对应的类名为sim，繁体为trad。  
@@ -23,6 +26,8 @@
 		switch: true
 	});
 	stSwitch.changeText();	//切换繁简体
+	var str = "体体体体";
+		str = stSwitch.simtradSwitch("trad",str); // 切换str字符串为繁体字符串
 ```
 
 # 参数
@@ -32,4 +37,5 @@ trad 	标签内文本转化为繁体
 | options | 类型 | 默认值 | 说明 |
 | ---------- |:-------:|:-------:|:------:|
 | switch | boolean | false | 开启切换 |
+| debug | boolean | false |　查看实例化的耗时 |
 | callback | function | none | 实例化后完成的回调,返回所有的文本节点数组 |
